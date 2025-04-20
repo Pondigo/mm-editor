@@ -35,13 +35,26 @@ A Mermaid diagram editor built with Go and WebAssembly.
 
 ## Running the Editor
 
-1. The simplest way to run the editor is with Python's built-in HTTP server:
+1. The simplest way to run the editor is with our start script:
    ```
-   python3 -m http.server -d public 8080
+   ./scripts/start.sh
+   ```
+   
+   This will:
+   - Build the application if needed
+   - Start an HTTP server on port 8080
+   - Store the process ID for easy shutdown
+
+2. To stop the server:
+   ```
+   ./scripts/stop.sh
    ```
 
-   Alternatively, you can use any HTTP server:
+3. Alternatively, you can manually run an HTTP server:
    ```
+   # Python
+   python3 -m http.server -d public 8080
+   
    # Node.js (http-server)
    npx http-server public
    
@@ -50,7 +63,7 @@ A Mermaid diagram editor built with Go and WebAssembly.
    goserve -dir public
    ```
 
-2. Open your browser and navigate to:
+4. Open your browser and navigate to:
    ```
    http://localhost:8080
    ```
