@@ -30,36 +30,27 @@ A Mermaid diagram editor built with Go and WebAssembly.
    ```
    ./scripts/build.sh
    ```
-
-   Alternatively, build manually:
-   ```
-   mkdir -p public/js public/wasm
-   cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" public/js/
-   GOOS=js GOARCH=wasm go build -o public/wasm/main.wasm ./cmd/webapp/
-   ```
+   
+   The script will automatically download `wasm_exec.js` if it can't find it in your Go installation.
 
 ## Running the Editor
 
-1. Install a static file server if you don't have one:
+1. The simplest way to run the editor is with Python's built-in HTTP server:
    ```
-   go install golang.org/x/tools/cmd/goserve@latest
+   python3 -m http.server -d public 8080
    ```
 
-2. Serve the public directory:
+   Alternatively, you can use any HTTP server:
    ```
+   # Node.js (http-server)
+   npx http-server public
+   
+   # Go
+   go install golang.org/x/tools/cmd/goserve@latest
    goserve -dir public
    ```
 
-   Alternatively, use any HTTP server:
-   ```
-   # Python 3
-   python3 -m http.server -d public 8080
-   
-   # Node.js (http-server)
-   npx http-server public
-   ```
-
-3. Open your browser and navigate to:
+2. Open your browser and navigate to:
    ```
    http://localhost:8080
    ```
