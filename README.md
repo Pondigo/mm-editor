@@ -68,6 +68,39 @@ A Mermaid diagram editor built with Go and WebAssembly.
    http://localhost:8080
    ```
 
+## Development Workflow
+
+For development with hot reload:
+
+1. Install the required dependencies:
+   ```bash
+   # macOS
+   brew install entr
+   npm install -g browser-sync
+   
+   # Linux
+   apt-get install entr
+   npm install -g browser-sync
+   ```
+
+2. Start the development server:
+   ```bash
+   ./scripts/dev.sh
+   ```
+   This will:
+   - Build the WebAssembly application
+   - Start a browser-sync server on port 8080
+   - Watch for file changes in Go source files
+   - Automatically rebuild when changes are detected
+   - Refresh the browser when files are updated
+
+3. Open your browser at http://localhost:8080
+
+4. To stop the development server:
+   ```bash
+   ./scripts/stop-dev.sh
+   ```
+
 ## How to Use
 
 1. Once loaded, you'll see the diagram canvas and the Mermaid preview panel.
